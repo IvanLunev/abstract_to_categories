@@ -8,9 +8,9 @@ import torch
 from simpletransformers.classification import MultiLabelClassificationModel
 
 st.markdown("# Abstract to categories converter")
-st.markdown("### The app generates more suitable categories for your abstract")
+st.markdown("### Generates the most suitable categories for your abstract")
 st.markdown(
-    "<img width=600px src='https://pub.mdpi-res.com/mathematics/mathematics-10-04398/article_deploy/html/images/mathematics-10-04398-g003.png'>",
+    "<img width=700px src='https://pub.mdpi-res.com/mathematics/mathematics-10-04398/article_deploy/html/images/mathematics-10-04398-g003.png'>",
     unsafe_allow_html=True)
 
 st.markdown("")
