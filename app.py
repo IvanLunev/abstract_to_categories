@@ -23,8 +23,15 @@ def load_model():
     model_loaded = MultiLabelClassificationModel('roberta', "roberta-base",
                                                  num_labels=93,
                                                  use_cuda=False)
+
+    url = 'https://drive.google.com/uc?export=download&id=17DK_VEDnwhtawSozyhvqbKSTm-PQqt89'
+    output = 'pytorch_model.bin'
+    gdown.download(url, output, quiet=False)
+
+    # torch.hub.download_url_to_file('https://drive.google.com/uc?export=download&id=17DK_VEDnwhtawSozyhvqbKSTm-PQqt89',
+    #                                'pytorch_model.bin')
     model_loaded.model.load_state_dict(
-        torch.load("model/roberta_out/pytorch_model.bin", map_location=torch.device('cpu')))
+        torch.load("pytorch_model.bin", map_location=torch.device('cpu')))
     return model_loaded
 
 
