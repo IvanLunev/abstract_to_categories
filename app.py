@@ -18,8 +18,7 @@ st.markdown("")
 text = st.text_area("PUT YOUR ABSTRACT HERE", height=200)
 
 
-# @st.cache_resource
-@st.cache_data
+@st.cache_resource
 def load_model():
     model_loaded = MultiLabelClassificationModel('roberta', "roberta-base",
                                                  num_labels=93,
@@ -36,8 +35,8 @@ def load_model():
     return model_loaded
 
 
-# @st.cache_resource
-@st.cache_data
+
+@st.cache_resource
 def load_encoder():
     with open('model/multi_label_encoder.pkl', 'rb') as f:
         encoder = pickle.load(f)
@@ -45,8 +44,8 @@ def load_encoder():
 
 
 @st.cache_data
-def get_predictions(model, text):
-    predicted_categories_encoded, raw_outputs = model.predict([text])
+def get_predictions(_model, text):
+    predicted_categories_encoded, raw_outputs = _model.predict([text])
     return predicted_categories_encoded, raw_outputs
 
 
