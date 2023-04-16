@@ -79,6 +79,6 @@ if text != "":
 
     dataframe = pd.DataFrame(data, columns=["Category", "Confidence"])
 
-    conf_thresh = st.slider('Confidence threshold', 0.0, 1.0, 0.5)
+    conf_thresh = st.slider('Confidence threshold', 0.0, 1.0, 0.01)
     dataframe_filtered = dataframe[dataframe["Confidence"].astype('float32') > conf_thresh]
     st.table(dataframe_filtered)
