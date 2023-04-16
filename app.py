@@ -8,9 +8,9 @@ from simpletransformers.classification import MultiLabelClassificationModel
 
 st.markdown("# Abstract to categories converter")
 st.markdown("### The app generates more suitable categories for your abstract")
-# st.markdown(
-#     "<img width=600px src='https://pub.mdpi-res.com/mathematics/mathematics-10-04398/article_deploy/html/images/mathematics-10-04398-g003.png'>",
-#     unsafe_allow_html=True)
+st.markdown(
+    "<img width=600px src='https://pub.mdpi-res.com/mathematics/mathematics-10-04398/article_deploy/html/images/mathematics-10-04398-g003.png'>",
+    unsafe_allow_html=True)
 
 st.markdown("")
 
@@ -64,8 +64,8 @@ model = load_model()
 multi_label_encoder = load_encoder()
 
 if text != "":
-    # predicted_categories_encoded, raw_outputs = get_predictions(model, text)
-    raw_outputs = np.random.random((1, 93))
+    predicted_categories_encoded, raw_outputs = get_predictions(model, text)
+#     raw_outputs = np.random.random((1, 93))
     predicted_categories, confs = get_top(raw_outputs, multi_label_encoder)
 
     data = np.concatenate([[predicted_categories], np.round([confs], 3)], axis=0).T
